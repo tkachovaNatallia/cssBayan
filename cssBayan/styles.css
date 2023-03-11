@@ -16,6 +16,10 @@ body {
   font-family: Roboto;
 }
 
+a {
+  text-decoration: none;
+}
+
 .wrapper {
   max-width: max-content;
   margin: auto;
@@ -41,6 +45,25 @@ h1 {
 .accordion__icon {
   font-size: 2rem;
   font-weight: bold;
+}
+
+.accordion:has(.accordion__content.default) .accordion__content.default {
+  max-height: 60rem;
+ }
+
+.wrapper:has(.accordion:target) .accordion__content.default,
+.accordion__content {
+  margin-bottom: 0;
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition-property: margin, padding, max-height;
+  transition-duration: 0.25s;
+}
+
+.accordion:target .accordion__content,
+.wrapper .accordion:target .accordion__content.default {
+  max-height: 60rem;
 }
 
 .accordion__image {
